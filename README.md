@@ -23,9 +23,9 @@ To get into the containers shell of the running instance run:<br>
 
 *./run_shell.sh* : navigates you into the shell of the running docker container
 
-*./scripts/docker_start.sh * : creates a new instance with of the currently active image
+*./scripts/docker_start.sh* : creates a new instance with of the currently active image
 
-./scripts/docker_stop.sh : shutdown current container
+*./scripts/docker_stop.sh* : shutdown current container
 
 *./scripts/docker_stop_force.sh* : shutdown all container that have the same image name as the one that is currently active
 
