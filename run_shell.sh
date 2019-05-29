@@ -11,4 +11,4 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 
-konsole --noclose -e  "bash $DIR/scripts/docker_exec.sh /bin/bash"
+konsole --noclose -e  "bash \"$DIR/scripts/docker_exec.sh\" /bin/bash"

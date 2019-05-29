@@ -7,11 +7,11 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 
-label=$(<$DIR/_label.docker)
-var=$(<$DIR/_id.docker)
+label=$(<"$DIR/_label.docker")
+var=$(<"$DIR/_id.docker")
 if [ "$var" != "" ]
 then
     bash "$DIR/docker_stop.sh"
 fi
-docker run -d -v "$DIR/../mounts/django_project":"/home/docker/code" $@ $label > $DIR/_id.docker
+docker run -d -v "$DIR/../mounts/django_project":"/home/docker/code" $@ $label > "$DIR/_id.docker"
 chmod 777 "$DIR/../mounts/django_project"

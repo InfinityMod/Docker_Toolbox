@@ -7,6 +7,6 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 
-var=$(<$DIR/_label.docker)
+var=$(<"$DIR/_label.docker")
 
 docker save $var>"$DIR/../images/$1"

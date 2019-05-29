@@ -7,5 +7,5 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 
-var=$(<$DIR/_id.docker)
+var=$(<"$DIR/_id.docker")
 docker exec -it $var /bin/bash -c "$@;$SHELL --init-file <(echo \"history -s \"$@\"\")"

@@ -9,8 +9,8 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 
-id=$(<$DIR/_id.docker)
-label=$(<$DIR/_label.docker)
+id=$(<"$DIR/_id.docker")
+label=$(<"$DIR/_label.docker")
 pid=$(docker inspect --format {{.State.Pid}} $id)
 folder="/proc/$pid/root/etc/.."
 mnt_folder="$DIR/../mounts/root/"
