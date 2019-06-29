@@ -13,5 +13,5 @@ if [ "$var" != "" ]
 then
     bash "$DIR/docker_stop.sh"
 fi
-docker run -d -v "$DIR/../mounts/django_project":"/home/docker/code" $@ $label > "$DIR/_id.docker"
+docker run -d -v "$DIR/../mounts/django_project":"/home/docker/code" $@ $label tail -f /dev/null> "$DIR/_id.docker"
 chmod 777 "$DIR/../mounts/django_project"

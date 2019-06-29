@@ -15,7 +15,14 @@ pid=$(docker inspect --format {{.State.Pid}} $id)
 folder="/proc/$pid/root/etc/.."
 mnt_folder="$DIR/../mounts/root/"
 
-mkdir -p $mnt_folder
+mkdir -p "$mnt_folder"
 sudo umount "$mnt_folder"
 sudo bindfs --map=root/$1 "$folder" "$mnt_folder"
-xdg-open $mnt_folder
+
+. "$DIR/_init.sh"
+
+if testcmd xdg-open; then
+    xdg-open "$mnt_folder"
+else
+    cd "$mnt_folder"
+fi

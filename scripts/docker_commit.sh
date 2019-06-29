@@ -8,5 +8,5 @@ done
 DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 
 var=$(<"$DIR/_id.docker")
-docker commit -a "David Ziegler" -m "$1" $var $2 
-echo "$2" > $DIR/_label.docker
+docker commit -a "David Ziegler" -m "$1" $var "$2" 
+echo "$2" > "$DIR/_label.docker"

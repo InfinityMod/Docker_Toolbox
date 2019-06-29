@@ -9,4 +9,4 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 
 var=$(<"$DIR/_label.docker")
 
-docker save $var>"$DIR/../images/$1"
+docker save -o "$DIR/../images/$1" $var
